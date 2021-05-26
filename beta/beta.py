@@ -1,18 +1,13 @@
-import os
-print('\033c')
-import sys
-import threading
-import signal
-import time
-import tweepy
-import pyfiglet
-import sys, tty, termios
-import keyboard
-from keys import *
+import os, sys, tty, termios
+import threading, signal, time
+import tweepy, pyfiglet, keyboard
 from termcolor import colored
 from colorama import init
 from colorama import Fore, Back, Style
-from pyfiglet import Figlet
+from keys import *
+## from pyfiglet import Figlet
+
+print('\033c')
 
 def signal_handler(signal, frame):
     print(Fore.RED + 'You pressed Ctrl+C! Closing Script')
@@ -85,41 +80,20 @@ print (Fore.GREEN + "Done! , you tweeted : ")
 print (Fore.BLUE + "[  "  + tweet +"  ]" )
 print ("\n" + "\n")
 time.sleep (2)
-print (Fore.YELLOW + "This script will close in 10 seconds")
-time.sleep (6)
 print (clear)
 print (Fore.RED + title)
 print ("\n" + "\n")
 print (Fore.RED + "This script will close in a couple of seconds")
+time.sleep (3)
 print (Style.RESET_ALL + "\n")
-time.sleep (1)
 print (clear)
 print (Fore.CYAN + close)
 print (stitle)
-print (Style.RESET_ALL + " ")
-print (Fore.GREEN + "Done! , you tweeted : ")
+print (Style.RESET_ALL + "\n")
+print (Fore.GREEN + "Script CLosed, Your Tweet was : ")
 print (Fore.BLUE + "[  "  + tweet +"  ]" )
 
-class keyboardDisable():
 
-    def start(self):
-        self.on = True
-
-    def stop(self):
-        self.on = False
-
-    def call(self): 
-        while self.on:
-            msvcrt.getwch()
-
-    def init(self):
-        self.on = False
-        import msvcrt
-
-disable = keyboardDisable()
-disable.start()
-time.sleep(1)
-disable.stop()
 forever = threading.Event()
 forever.wait()
 os._exit(0)
