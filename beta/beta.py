@@ -1,8 +1,5 @@
 import os
 print('\033c')
-print('\n\nMaking sure the requirements package are installed\n\n')
-os.system('pip install -r requirements.txt | grep -v "Requirement already satisfied" ')
-
 import sys
 import threading
 import signal
